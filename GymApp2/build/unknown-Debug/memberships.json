@@ -1,0 +1,48 @@
+{
+    "memberships": [
+        {
+            "access": 4,
+            "cost": 16000,
+            "duration": 3,
+            "endDate": "2026-12-09",
+            "id": 1,
+            "startDate": "2025-12-09",
+            "status": 0,
+            "time": 0,
+            "userId": 2
+        },
+        {
+            "access": 0,
+            "cost": 10000,
+            "duration": 2,
+            "endDate": "2026-06-09",
+            "id": 2,
+            "startDate": "2025-12-09",
+            "status": 0,
+            "time": 3,
+            "userId": 1
+        },
+        {
+            "access": 4,
+            "cost": 700,
+            "duration": 0,
+            "endDate": "2025-12-10",
+            "id": 3,
+            "startDate": "2025-12-09",
+            "status": 0,
+            "time": 3,
+            "userId": 2
+        },
+        {
+            "access": 0,
+            "cost": 15000,
+            "duration": 3,
+            "endDate": "2026-12-18",
+            "id": 4,
+            "startDate": "2025-12-18",
+            "status": 0,
+            "time": 0,
+            "userId": 3
+        }
+    ]
+}

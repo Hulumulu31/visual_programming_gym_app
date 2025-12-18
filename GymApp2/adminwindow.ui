@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AdminWindow</class>
+ <widget class="QMainWindow" name="AdminWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Панель администратора</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="membershipsTab">
+       <attribute name="title">
+        <string>Абонементы</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QTableWidget" name="membershipsTable">
+          <column>
+           <property name="text">
+            <string>ID</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Клиент</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Тип</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Начало</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Конец</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Стоимость</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Статус</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QPushButton" name="addMembershipButton">
+            <property name="text">
+             <string>Добавить абонемент</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="editMembershipButton">
+            <property name="text">
+             <string>Редактировать</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="deleteMembershipButton">
+            <property name="text">
+             <string>Удалить</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="trainerServicesTab">
+       <attribute name="title">
+        <string>Тренерские услуги</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_trainerServices">
+        <item>
+         <widget class="QTableWidget" name="trainerServicesTable">
+          <column>
+           <property name="text">
+            <string>ID</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Клиент</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Вид услуги</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Срок</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Начало</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Конец</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Стоимость</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Статус</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_trainerServices">
+          <item>
+           <widget class="QPushButton" name="deleteTrainerServiceButton">
+            <property name="text">
+             <string>Удалить</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="visitsTab">
+       <attribute name="title">
+        <string>Посещения</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QTableWidget" name="visitsTable">
+          <column>
+           <property name="text">
+            <string>ID</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Клиент</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Дата и время</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="reportsTab">
+       <attribute name="title">
+        <string>Отчеты</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QSplitter" name="reportsSplitter">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <widget class="QWidget" name="attendanceReportWidget">
+           <layout class="QVBoxLayout" name="attendanceReportLayout">
+            <item>
+             <widget class="QLabel" name="attendanceReportLabel">
+              <property name="text">
+               <string>Отчет по посещениям</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDateEdit" name="attendanceReportDate">
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+              <property name="date">
+               <date>
+                <year>2025</year>
+                <month>1</month>
+                <day>1</day>
+               </date>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTextEdit" name="attendanceReportText">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="attendanceReportButton">
+              <property name="text">
+               <string>Отчет по посещениям</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="revenueReportWidget">
+           <layout class="QVBoxLayout" name="revenueReportLayout">
+            <item>
+             <widget class="QLabel" name="revenueReportLabel">
+              <property name="text">
+               <string>Отчет по доходам</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDateEdit" name="revenueReportDate">
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+              <property name="date">
+               <date>
+                <year>2025</year>
+                <month>1</month>
+                <day>1</day>
+               </date>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTextEdit" name="revenueReportText">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="revenueReportButton">
+              <property name="text">
+               <string>Отчет по доходам</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="searchTab">
+       <attribute name="title">
+        <string>Поиск и фильтрация</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QGroupBox" name="searchGroupBox">
+          <property name="title">
+           <string>Поиск</string>
+          </property>
+          <layout class="QFormLayout" name="formLayout">
+           <item row="0" column="0">
+            <widget class="QLabel" name="searchLabel">
+             <property name="text">
+              <string>Поиск по:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="searchFieldComboBox">
+             <item>
+              <property name="text">
+               <string>Клиенту</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Типу абонемента</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Дате</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Тренерским услугам</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="queryLabel">
+             <property name="text">
+              <string>Запрос:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="searchQueryLineEdit"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="filterGroupBox">
+          <property name="title">
+           <string>Фильтрация</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QLabel" name="filterLabel">
+             <property name="text">
+              <string>Статус:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="statusFilterComboBox">
+             <item>
+              <property name="text">
+               <string>Все</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Активен</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Истек</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="typeFilterComboBox">
+             <property name="visible">
+              <bool>false</bool>
+             </property>
+             <item>
+              <property name="text">
+               <string>Все</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Тренажерный зал</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Групповые тренировки</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Плавание</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Бокс</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="searchButton">
+          <property name="text">
+           <string>Поиск</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="searchResultsTable">
+          <column>
+           <property name="text">
+            <string>ID</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Клиент</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Тип</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Статус</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Начало</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Конец</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1000</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>Файл</string>
+    </property>
+    <addaction name="actionImport"/>
+    <addaction name="actionExport"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionImport">
+   <property name="text">
+    <string>Импорт</string>
+   </property>
+  </action>
+  <action name="actionExport">
+   <property name="text">
+    <string>Экспорт</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Выход</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

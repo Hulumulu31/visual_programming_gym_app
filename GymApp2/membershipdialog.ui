@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MembershipDialog</class>
+ <widget class="QDialog" name="MembershipDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>350</height>
+   </rect>
+  </property>
+ <property name="windowTitle">
+   <string>Dialog</string>
+ </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="durationLabel">
+       <property name="text">
+        <string>Срок действия:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="durationComboBox">
+       <item>
+        <property name="text">
+         <string>Разовый</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Месячный</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Полугодовой</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Годовой</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Двухгодовой</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="accessLabel">
+       <property name="text">
+        <string>Доступ к зонам:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QComboBox" name="accessComboBox">
+       <item>
+        <property name="text">
+         <string>Тренажерный зал</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Зал групповых тренировок</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Бассейн</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Бокс</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Полный доступ</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="timeLabel">
+       <property name="text">
+        <string>Время посещения:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QComboBox" name="timeComboBox">
+       <item>
+        <property name="text">
+         <string>Утренний</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Дневной</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Вечерний</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Полный день</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="startDateLabel">
+       <property name="text">
+        <string>Дата начала:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QDateEdit" name="startDateEdit">
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="costLabel">
+       <property name="text">
+        <string>Стоимость:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="costLineEdit"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

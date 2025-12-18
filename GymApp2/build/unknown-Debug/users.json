@@ -1,0 +1,25 @@
+{
+    "users": [
+        {
+            "email": "1",
+            "id": 1,
+            "name": "1",
+            "password": "1",
+            "type": 1
+        },
+        {
+            "email": "2",
+            "id": 2,
+            "name": "2",
+            "password": "2",
+            "type": 1
+        },
+        {
+            "email": "bibsik@gmail.com",
+            "id": 3,
+            "name": "biba",
+            "password": "biba",
+            "type": 1
+        }
+    ]
+}

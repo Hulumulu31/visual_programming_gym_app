@@ -20,6 +20,13 @@
             "name": "biba",
             "password": "biba",
             "type": 1
+        },
+        {
+            "email": "andrey@gmail.com",
+            "id": 4,
+            "name": "andrey",
+            "password": "766a5ad0a3494a7f2089692e368ac32f974ab0995a32ba605c64148de06f6a05",
+            "type": 1
         }
     ]
 }

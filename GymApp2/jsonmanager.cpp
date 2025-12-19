@@ -301,7 +301,7 @@ QJsonObject JsonManager::userToJson(const User& user) {
     obj["id"] = user.getId();
     obj["name"] = user.getName();
     obj["email"] = user.getEmail();
-    obj["password"] = user.getPassword(); // Store password in JSON
+    obj["password"] = user.getPassword(); // Store hashed password in JSON
     obj["type"] = static_cast<int>(user.getUserType());
     return obj;
 }
@@ -310,9 +310,10 @@ User JsonManager::jsonToUser(const QJsonObject& json) {
     int id = json["id"].toInt();
     QString name = json["name"].toString();
     QString email = json["email"].toString();
-    QString password = json["password"].toString(); // Load password from JSON
+    QString password = json["password"].toString(); // Load hashed password from JSON
     UserType type = static_cast<UserType>(json["type"].toInt());
-    return User(id, name, email, password, type);
+    // Создаем пользователя с уже хешированным паролем (не хешируем второй раз)
+    return User::createWithHashedPassword(id, name, email, password, type); // пароль уже хеширован
 }
 
 QJsonObject JsonManager::membershipToJson(const Membership& membership) {

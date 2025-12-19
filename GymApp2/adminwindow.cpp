@@ -186,19 +186,10 @@ void AdminWindow::onDeleteTrainerServiceClicked() {
 }
 
 void AdminWindow::onAttendanceReportClicked() {
-    // Load visits from the data manager
+    // Load all visits from the data manager
     QList<Visit> visits = m_dataManager.getVisits();
-    // Get the selected date from the date edit
-    QDate selectedDate = ui->attendanceReportDate->date();
-    // Filter visits for the selected date
-    QList<Visit> filteredVisits;
-    for (const auto& visit : visits) {
-        if (visit.getDateTime().date() == selectedDate) {
-            filteredVisits.append(visit);
-        }
-    }
-    // Generate and display attendance report for the selected date
-    QString report = m_reportManager.generateAttendanceReport(filteredVisits);
+    // Generate and display attendance report for all visits
+    QString report = m_reportManager.generateAttendanceReport(visits);
     ui->attendanceReportText->setText(report);
 }
 
@@ -312,9 +303,24 @@ void AdminWindow::onSearchClicked() {
         // Update the search results table
         populateSearchResultsTable(results, QList<TrainerService>());
     } else if (field == "Тренерским услугам") {
-        // Search in trainer services by type
+        // Search in trainer services by client name
         QList<TrainerService> services = m_dataManager.getTrainerServices();
-        auto results = m_searchFilterManager.searchTrainerServices(services, "Тип", query);
+        QList<User> users = m_dataManager.getUsers();
+        QList<TrainerService> results;
+        
+        // Find trainer services by client name
+        for (const auto& service : services) {
+            for (const auto& user : users) {
+                if (user.getId() == service.getUserId()) {
+                    if (user.getName().contains(query, Qt::CaseInsensitive) ||
+                        QString::number(user.getId()).contains(query)) {
+                        results.append(service);
+                        break;
+                    }
+                }
+            }
+        }
+        
         // Apply type filter if not "Все"
         QString typeFilter = ui->typeFilterComboBox->currentText();
         if (typeFilter != "Все") {
@@ -331,6 +337,7 @@ void AdminWindow::populateMembershipsTable() {
     
     // Load memberships from the data manager
     QList<Membership> memberships = m_dataManager.getMemberships();
+    QList<User> users = m_dataManager.getUsers();
     
     // Add data for demonstration
     for (const auto& membership : memberships) {
@@ -340,19 +347,30 @@ void AdminWindow::populateMembershipsTable() {
         ui->membershipsTable->setItem(row, 0, new QTableWidgetItem(QString::number(membership.getId())));
         if (membership.getUserId() == 0) {
             ui->membershipsTable->setItem(row, 1, new QTableWidgetItem("Шаблон"));
+            ui->membershipsTable->setItem(row, 2, new QTableWidgetItem(""));
         } else {
             ui->membershipsTable->setItem(row, 1, new QTableWidgetItem(QString::number(membership.getUserId())));
+            
+            // Find the user name based on user ID
+            QString userName = "Неизвестный";
+            for (const auto& user : users) {
+                if (user.getId() == membership.getUserId()) {
+                    userName = user.getName();
+                    break;
+                }
+            }
+            ui->membershipsTable->setItem(row, 2, new QTableWidgetItem(userName));
         }
-        ui->membershipsTable->setItem(row, 2, new QTableWidgetItem(
+        ui->membershipsTable->setItem(row, 3, new QTableWidgetItem(
             membership.getDuration() == MembershipDuration::Single ? "Разовый" :
             membership.getDuration() == MembershipDuration::Monthly ? "Месячный" :
             membership.getDuration() == MembershipDuration::HalfYear ? "Полугодовой" :
             membership.getDuration() == MembershipDuration::Yearly ? "Годовой" :
             "Двухгодовой"));
-        ui->membershipsTable->setItem(row, 3, new QTableWidgetItem(membership.getStartDate().toString("dd.MM.yyyy")));
-        ui->membershipsTable->setItem(row, 4, new QTableWidgetItem(membership.getEndDate().toString("dd.MM.yyyy")));
-        ui->membershipsTable->setItem(row, 5, new QTableWidgetItem(QString::number(membership.getCost())));
-        ui->membershipsTable->setItem(row, 6, new QTableWidgetItem(
+        ui->membershipsTable->setItem(row, 4, new QTableWidgetItem(membership.getStartDate().toString("dd.MM.yyyy")));
+        ui->membershipsTable->setItem(row, 5, new QTableWidgetItem(membership.getEndDate().toString("dd.MM.yyyy")));
+        ui->membershipsTable->setItem(row, 6, new QTableWidgetItem(QString::number(membership.getCost())));
+        ui->membershipsTable->setItem(row, 7, new QTableWidgetItem(
             membership.getStatus() == MembershipStatus::Active ? "Активен" : "Истек"));
     }
 }
@@ -363,6 +381,7 @@ void AdminWindow::populateTrainerServicesTable() {
     
     // Load trainer services from the data manager
     QList<TrainerService> services = m_dataManager.getTrainerServices();
+    QList<User> users = m_dataManager.getUsers();
     
     // Add data for demonstration
     for (const auto& service : services) {
@@ -371,6 +390,16 @@ void AdminWindow::populateTrainerServicesTable() {
         
         ui->trainerServicesTable->setItem(row, 0, new QTableWidgetItem(QString::number(service.getId())));
         ui->trainerServicesTable->setItem(row, 1, new QTableWidgetItem(QString::number(service.getUserId())));
+        
+        // Find the user name based on user ID
+        QString userName = "Неизвестный";
+        for (const auto& user : users) {
+            if (user.getId() == service.getUserId()) {
+                userName = user.getName();
+                break;
+            }
+        }
+        ui->trainerServicesTable->setItem(row, 2, new QTableWidgetItem(userName));
         
         QString typeStr;
         switch (service.getServiceType()) {
@@ -387,7 +416,7 @@ void AdminWindow::populateTrainerServicesTable() {
                 typeStr = "Бокс";
                 break;
         }
-        ui->trainerServicesTable->setItem(row, 2, new QTableWidgetItem(typeStr));
+        ui->trainerServicesTable->setItem(row, 3, new QTableWidgetItem(typeStr));
         
         QString durationStr;
         switch (service.getDuration()) {
@@ -410,12 +439,12 @@ void AdminWindow::populateTrainerServicesTable() {
                 durationStr = "Два года";
                 break;
         }
-        ui->trainerServicesTable->setItem(row, 3, new QTableWidgetItem(durationStr));
+        ui->trainerServicesTable->setItem(row, 4, new QTableWidgetItem(durationStr));
         
-        ui->trainerServicesTable->setItem(row, 4, new QTableWidgetItem(service.getStartDate().toString("dd.MM.yyyy")));
-        ui->trainerServicesTable->setItem(row, 5, new QTableWidgetItem(service.getEndDate().toString("dd.MM.yyyy")));
-        ui->trainerServicesTable->setItem(row, 6, new QTableWidgetItem(QString::number(service.getCost())));
-        ui->trainerServicesTable->setItem(row, 7, new QTableWidgetItem(
+        ui->trainerServicesTable->setItem(row, 5, new QTableWidgetItem(service.getStartDate().toString("dd.MM.yyyy")));
+        ui->trainerServicesTable->setItem(row, 6, new QTableWidgetItem(service.getEndDate().toString("dd.MM.yyyy")));
+        ui->trainerServicesTable->setItem(row, 7, new QTableWidgetItem(QString::number(service.getCost())));
+        ui->trainerServicesTable->setItem(row, 8, new QTableWidgetItem(
             service.getStatus() == TrainerServiceStatus::Active ? "Активна" : "Истекла"));
     }
 }
@@ -426,6 +455,7 @@ void AdminWindow::populateVisitsTable() {
     
     // Load visits from the data manager
     QList<Visit> visits = m_dataManager.getVisits();
+    QList<User> users = m_dataManager.getUsers();
     
     // Add data for demonstration
     for (const auto& visit : visits) {
@@ -434,14 +464,24 @@ void AdminWindow::populateVisitsTable() {
         
         ui->visitsTable->setItem(row, 0, new QTableWidgetItem(QString::number(visit.getId())));
         ui->visitsTable->setItem(row, 1, new QTableWidgetItem(QString::number(visit.getUserId())));
-        ui->visitsTable->setItem(row, 2, new QTableWidgetItem(visit.getDateTime().toString("dd.MM.yyyy hh:mm")));
+        
+        // Find the user name based on user ID
+        QString userName = "Неизвестный";
+        for (const auto& user : users) {
+            if (user.getId() == visit.getUserId()) {
+                userName = user.getName();
+                break;
+            }
+        }
+        ui->visitsTable->setItem(row, 2, new QTableWidgetItem(userName));
+        ui->visitsTable->setItem(row, 3, new QTableWidgetItem(visit.getDateTime().toString("dd.MM.yyyy hh:mm")));
     }
 }
 
 void AdminWindow::populateSearchResultsTable(const QList<Membership>& memberships, const QList<TrainerService>& services) {
     // Clear the table and set headers
     ui->searchResultsTable->setRowCount(0);
-    ui->searchResultsTable->setHorizontalHeaderLabels(QStringList() << "ID" << "Клиент" << "Тип" << "Статус" << "Начало" << "Конец");
+    ui->searchResultsTable->setHorizontalHeaderLabels(QStringList() << "ID" << "ID клиента" << "Имя клиента" << "Тип" << "Статус" << "Начало" << "Конец");
     
     // Load users to get client names
     QList<User> users = m_dataManager.getUsers();
@@ -455,6 +495,7 @@ void AdminWindow::populateSearchResultsTable(const QList<Membership>& membership
         
         // Find the client name based on user ID
         QString clientName = "Шаблон";
+        QString clientId = QString::number(membership.getUserId());
         if (membership.getUserId() != 0) {
             for (const auto& user : users) {
                 if (user.getId() == membership.getUserId()) {
@@ -462,20 +503,23 @@ void AdminWindow::populateSearchResultsTable(const QList<Membership>& membership
                     break;
                 }
             }
+        } else {
+            clientId = "";
         }
-        ui->searchResultsTable->setItem(row, 1, new QTableWidgetItem(clientName));
+        ui->searchResultsTable->setItem(row, 1, new QTableWidgetItem(clientId));
+        ui->searchResultsTable->setItem(row, 2, new QTableWidgetItem(clientName));
         
-        ui->searchResultsTable->setItem(row, 2, new QTableWidgetItem(
+        ui->searchResultsTable->setItem(row, 3, new QTableWidgetItem(
             membership.getDuration() == MembershipDuration::Single ? "Разовый" :
             membership.getDuration() == MembershipDuration::Monthly ? "Месячный" :
             membership.getDuration() == MembershipDuration::HalfYear ? "Полугодовой" :
             membership.getDuration() == MembershipDuration::Yearly ? "Годовой" :
             "Двухгодовой"));
-        ui->searchResultsTable->setItem(row, 3, new QTableWidgetItem(
+        ui->searchResultsTable->setItem(row, 4, new QTableWidgetItem(
             membership.getStatus() == MembershipStatus::Active ? "Активен" : "Истек"));
         // Add start and end dates as additional columns
-        ui->searchResultsTable->setItem(row, 4, new QTableWidgetItem(membership.getStartDate().toString("dd.MM.yyyy")));
-        ui->searchResultsTable->setItem(row, 5, new QTableWidgetItem(membership.getEndDate().toString("dd.MM.yyyy")));
+        ui->searchResultsTable->setItem(row, 5, new QTableWidgetItem(membership.getStartDate().toString("dd.MM.yyyy")));
+        ui->searchResultsTable->setItem(row, 6, new QTableWidgetItem(membership.getEndDate().toString("dd.MM.yyyy")));
     }
     
     // Populate with trainer service search results
@@ -487,13 +531,15 @@ void AdminWindow::populateSearchResultsTable(const QList<Membership>& membership
         
         // Find the client name based on user ID
         QString clientName = "Неизвестный";
+        QString clientId = QString::number(service.getUserId());
         for (const auto& user : users) {
             if (user.getId() == service.getUserId()) {
                 clientName = user.getName();
                 break;
             }
         }
-        ui->searchResultsTable->setItem(row, 1, new QTableWidgetItem(clientName));
+        ui->searchResultsTable->setItem(row, 1, new QTableWidgetItem(clientId));
+        ui->searchResultsTable->setItem(row, 2, new QTableWidgetItem(clientName));
         
         QString typeStr;
         switch (service.getServiceType()) {
@@ -510,16 +556,20 @@ void AdminWindow::populateSearchResultsTable(const QList<Membership>& membership
                 typeStr = "Бокс";
                 break;
         }
-        ui->searchResultsTable->setItem(row, 2, new QTableWidgetItem(typeStr));
-        ui->searchResultsTable->setItem(row, 3, new QTableWidgetItem(
+        ui->searchResultsTable->setItem(row, 3, new QTableWidgetItem(typeStr));
+        ui->searchResultsTable->setItem(row, 4, new QTableWidgetItem(
             service.getStatus() == TrainerServiceStatus::Active ? "Активна" : "Истекла"));
         // Add start and end dates as additional columns
-        ui->searchResultsTable->setItem(row, 4, new QTableWidgetItem(service.getStartDate().toString("dd.MM.yyyy")));
-        ui->searchResultsTable->setItem(row, 5, new QTableWidgetItem(service.getEndDate().toString("dd.MM.yyyy")));
+        ui->searchResultsTable->setItem(row, 5, new QTableWidgetItem(service.getStartDate().toString("dd.MM.yyyy")));
+        ui->searchResultsTable->setItem(row, 6, new QTableWidgetItem(service.getEndDate().toString("dd.MM.yyyy")));
     }
 }
 
 void AdminWindow::populateSearchResultsTableForTrainerServices(const QList<TrainerService>& results) {
+    // Clear the table and set headers
+    ui->searchResultsTable->setRowCount(0);
+    ui->searchResultsTable->setHorizontalHeaderLabels(QStringList() << "ID" << "ID клиента" << "Имя клиента" << "Тип" << "Статус" << "Начало" << "Конец");
+    
     // Load users to get client names
     QList<User> users = m_dataManager.getUsers();
     
@@ -532,13 +582,15 @@ void AdminWindow::populateSearchResultsTableForTrainerServices(const QList<Train
         
         // Find the client name based on user ID
         QString clientName = "Неизвестный";
+        QString clientId = QString::number(service.getUserId());
         for (const auto& user : users) {
             if (user.getId() == service.getUserId()) {
                 clientName = user.getName();
                 break;
             }
         }
-        ui->searchResultsTable->setItem(row, 1, new QTableWidgetItem(clientName));
+        ui->searchResultsTable->setItem(row, 1, new QTableWidgetItem(clientId));
+        ui->searchResultsTable->setItem(row, 2, new QTableWidgetItem(clientName));
         
         QString typeStr;
         switch (service.getServiceType()) {
@@ -555,11 +607,11 @@ void AdminWindow::populateSearchResultsTableForTrainerServices(const QList<Train
                 typeStr = "Бокс";
                 break;
         }
-        ui->searchResultsTable->setItem(row, 2, new QTableWidgetItem(typeStr));
-        ui->searchResultsTable->setItem(row, 3, new QTableWidgetItem(
+        ui->searchResultsTable->setItem(row, 3, new QTableWidgetItem(typeStr));
+        ui->searchResultsTable->setItem(row, 4, new QTableWidgetItem(
             service.getStatus() == TrainerServiceStatus::Active ? "Активна" : "Истекла"));
         // Add start and end dates as additional columns
-        ui->searchResultsTable->setItem(row, 4, new QTableWidgetItem(service.getStartDate().toString("dd.MM.yyyy")));
-        ui->searchResultsTable->setItem(row, 5, new QTableWidgetItem(service.getEndDate().toString("dd.MM.yyyy")));
+        ui->searchResultsTable->setItem(row, 5, new QTableWidgetItem(service.getStartDate().toString("dd.MM.yyyy")));
+        ui->searchResultsTable->setItem(row, 6, new QTableWidgetItem(service.getEndDate().toString("dd.MM.yyyy")));
     }
 }

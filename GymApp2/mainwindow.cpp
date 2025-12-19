@@ -79,11 +79,11 @@ bool MainWindow::validateUser(const QString &username, const QString &password)
     // For this example, we'll create a simple validation
     
     // First, check if the credentials match default/predefined users
-    if (username == "admin" && password == "admin") {
-        m_currentUser = User(1, "admin", "admin@gym.com", "admin", UserType::Admin);
+    if (username == "admin" && User::hashPassword(password) == User::hashPassword("admin")) {
+        m_currentUser = User::createWithHashedPassword(1, "admin", "admin@gym.com", User::hashPassword("admin"), UserType::Admin); // пароль уже хеширован
         return true;
-    } else if (username == "client" && password == "client") {
-        m_currentUser = User(2, "client", "client@gym.com", "client", UserType::Client);
+    } else if (username == "client" && User::hashPassword(password) == User::hashPassword("client")) {
+        m_currentUser = User::createWithHashedPassword(2, "client", "client@gym.com", User::hashPassword("client"), UserType::Client); // пароль уже хеширован
         return true;
     }
     
@@ -92,8 +92,8 @@ bool MainWindow::validateUser(const QString &username, const QString &password)
     QList<User> users = m_dataManager.getUsers();
     
     for (const auto& user : users) {
-        // Check both username and password
-        if (user.getName() == username && user.getPassword() == password) {
+        // Check both username and hashed password
+        if (user.getName() == username && user.getPassword() == User::hashPassword(password)) {
             m_currentUser = user;
             return true;
         }

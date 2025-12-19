@@ -9,6 +9,16 @@
             "startDate": "2025-12-19",
             "status": 0,
             "userId": 1
+        },
+        {
+            "cost": 11000,
+            "duration": 5,
+            "endDate": "2027-12-20",
+            "id": 2,
+            "serviceType": 0,
+            "startDate": "2025-12-20",
+            "status": 0,
+            "userId": 4
         }
     ]
 }

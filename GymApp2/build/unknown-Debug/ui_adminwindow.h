@@ -119,8 +119,8 @@ public:
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName("verticalLayout_2");
         membershipsTable = new QTableWidget(membershipsTab);
-        if (membershipsTable->columnCount() < 7)
-            membershipsTable->setColumnCount(7);
+        if (membershipsTable->columnCount() < 8)
+            membershipsTable->setColumnCount(8);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         membershipsTable->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
@@ -135,6 +135,8 @@ public:
         membershipsTable->setHorizontalHeaderItem(5, __qtablewidgetitem5);
         QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
         membershipsTable->setHorizontalHeaderItem(6, __qtablewidgetitem6);
+        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
+        membershipsTable->setHorizontalHeaderItem(7, __qtablewidgetitem7);
         membershipsTable->setObjectName("membershipsTable");
 
         verticalLayout_2->addWidget(membershipsTable);
@@ -168,24 +170,26 @@ public:
         verticalLayout_trainerServices->setContentsMargins(11, 11, 11, 11);
         verticalLayout_trainerServices->setObjectName("verticalLayout_trainerServices");
         trainerServicesTable = new QTableWidget(trainerServicesTab);
-        if (trainerServicesTable->columnCount() < 8)
-            trainerServicesTable->setColumnCount(8);
-        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
-        trainerServicesTable->setHorizontalHeaderItem(0, __qtablewidgetitem7);
+        if (trainerServicesTable->columnCount() < 9)
+            trainerServicesTable->setColumnCount(9);
         QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
-        trainerServicesTable->setHorizontalHeaderItem(1, __qtablewidgetitem8);
+        trainerServicesTable->setHorizontalHeaderItem(0, __qtablewidgetitem8);
         QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
-        trainerServicesTable->setHorizontalHeaderItem(2, __qtablewidgetitem9);
+        trainerServicesTable->setHorizontalHeaderItem(1, __qtablewidgetitem9);
         QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
-        trainerServicesTable->setHorizontalHeaderItem(3, __qtablewidgetitem10);
+        trainerServicesTable->setHorizontalHeaderItem(2, __qtablewidgetitem10);
         QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
-        trainerServicesTable->setHorizontalHeaderItem(4, __qtablewidgetitem11);
+        trainerServicesTable->setHorizontalHeaderItem(3, __qtablewidgetitem11);
         QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
-        trainerServicesTable->setHorizontalHeaderItem(5, __qtablewidgetitem12);
+        trainerServicesTable->setHorizontalHeaderItem(4, __qtablewidgetitem12);
         QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
-        trainerServicesTable->setHorizontalHeaderItem(6, __qtablewidgetitem13);
+        trainerServicesTable->setHorizontalHeaderItem(5, __qtablewidgetitem13);
         QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
-        trainerServicesTable->setHorizontalHeaderItem(7, __qtablewidgetitem14);
+        trainerServicesTable->setHorizontalHeaderItem(6, __qtablewidgetitem14);
+        QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
+        trainerServicesTable->setHorizontalHeaderItem(7, __qtablewidgetitem15);
+        QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
+        trainerServicesTable->setHorizontalHeaderItem(8, __qtablewidgetitem16);
         trainerServicesTable->setObjectName("trainerServicesTable");
 
         verticalLayout_trainerServices->addWidget(trainerServicesTable);
@@ -209,14 +213,16 @@ public:
         verticalLayout_3->setContentsMargins(11, 11, 11, 11);
         verticalLayout_3->setObjectName("verticalLayout_3");
         visitsTable = new QTableWidget(visitsTab);
-        if (visitsTable->columnCount() < 3)
-            visitsTable->setColumnCount(3);
-        QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
-        visitsTable->setHorizontalHeaderItem(0, __qtablewidgetitem15);
-        QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
-        visitsTable->setHorizontalHeaderItem(1, __qtablewidgetitem16);
+        if (visitsTable->columnCount() < 4)
+            visitsTable->setColumnCount(4);
         QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
-        visitsTable->setHorizontalHeaderItem(2, __qtablewidgetitem17);
+        visitsTable->setHorizontalHeaderItem(0, __qtablewidgetitem17);
+        QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
+        visitsTable->setHorizontalHeaderItem(1, __qtablewidgetitem18);
+        QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
+        visitsTable->setHorizontalHeaderItem(2, __qtablewidgetitem19);
+        QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
+        visitsTable->setHorizontalHeaderItem(3, __qtablewidgetitem20);
         visitsTable->setObjectName("visitsTable");
 
         verticalLayout_3->addWidget(visitsTable);
@@ -377,20 +383,22 @@ public:
         verticalLayout_5->addWidget(searchButton);
 
         searchResultsTable = new QTableWidget(searchTab);
-        if (searchResultsTable->columnCount() < 6)
-            searchResultsTable->setColumnCount(6);
-        QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
-        searchResultsTable->setHorizontalHeaderItem(0, __qtablewidgetitem18);
-        QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
-        searchResultsTable->setHorizontalHeaderItem(1, __qtablewidgetitem19);
-        QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
-        searchResultsTable->setHorizontalHeaderItem(2, __qtablewidgetitem20);
+        if (searchResultsTable->columnCount() < 7)
+            searchResultsTable->setColumnCount(7);
         QTableWidgetItem *__qtablewidgetitem21 = new QTableWidgetItem();
-        searchResultsTable->setHorizontalHeaderItem(3, __qtablewidgetitem21);
+        searchResultsTable->setHorizontalHeaderItem(0, __qtablewidgetitem21);
         QTableWidgetItem *__qtablewidgetitem22 = new QTableWidgetItem();
-        searchResultsTable->setHorizontalHeaderItem(4, __qtablewidgetitem22);
+        searchResultsTable->setHorizontalHeaderItem(1, __qtablewidgetitem22);
         QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
-        searchResultsTable->setHorizontalHeaderItem(5, __qtablewidgetitem23);
+        searchResultsTable->setHorizontalHeaderItem(2, __qtablewidgetitem23);
+        QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
+        searchResultsTable->setHorizontalHeaderItem(3, __qtablewidgetitem24);
+        QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
+        searchResultsTable->setHorizontalHeaderItem(4, __qtablewidgetitem25);
+        QTableWidgetItem *__qtablewidgetitem26 = new QTableWidgetItem();
+        searchResultsTable->setHorizontalHeaderItem(5, __qtablewidgetitem26);
+        QTableWidgetItem *__qtablewidgetitem27 = new QTableWidgetItem();
+        searchResultsTable->setHorizontalHeaderItem(6, __qtablewidgetitem27);
         searchResultsTable->setObjectName("searchResultsTable");
 
         verticalLayout_5->addWidget(searchResultsTable);
@@ -432,45 +440,51 @@ public:
         QTableWidgetItem *___qtablewidgetitem = membershipsTable->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("AdminWindow", "ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = membershipsTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QCoreApplication::translate("AdminWindow", "\320\232\320\273\320\270\320\265\320\275\321\202", nullptr));
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("AdminWindow", "ID \320\272\320\273\320\270\320\265\320\275\321\202\320\260", nullptr));
         QTableWidgetItem *___qtablewidgetitem2 = membershipsTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("AdminWindow", "\320\242\320\270\320\277", nullptr));
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("AdminWindow", "\320\230\320\274\321\217 \320\272\320\273\320\270\320\265\320\275\321\202\320\260", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = membershipsTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QCoreApplication::translate("AdminWindow", "\320\235\320\260\321\207\320\260\320\273\320\276", nullptr));
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("AdminWindow", "\320\242\320\270\320\277", nullptr));
         QTableWidgetItem *___qtablewidgetitem4 = membershipsTable->horizontalHeaderItem(4);
-        ___qtablewidgetitem4->setText(QCoreApplication::translate("AdminWindow", "\320\232\320\276\320\275\320\265\321\206", nullptr));
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("AdminWindow", "\320\235\320\260\321\207\320\260\320\273\320\276", nullptr));
         QTableWidgetItem *___qtablewidgetitem5 = membershipsTable->horizontalHeaderItem(5);
-        ___qtablewidgetitem5->setText(QCoreApplication::translate("AdminWindow", "\320\241\321\202\320\276\320\270\320\274\320\276\321\201\321\202\321\214", nullptr));
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("AdminWindow", "\320\232\320\276\320\275\320\265\321\206", nullptr));
         QTableWidgetItem *___qtablewidgetitem6 = membershipsTable->horizontalHeaderItem(6);
-        ___qtablewidgetitem6->setText(QCoreApplication::translate("AdminWindow", "\320\241\321\202\320\260\321\202\321\203\321\201", nullptr));
+        ___qtablewidgetitem6->setText(QCoreApplication::translate("AdminWindow", "\320\241\321\202\320\276\320\270\320\274\320\276\321\201\321\202\321\214", nullptr));
+        QTableWidgetItem *___qtablewidgetitem7 = membershipsTable->horizontalHeaderItem(7);
+        ___qtablewidgetitem7->setText(QCoreApplication::translate("AdminWindow", "\320\241\321\202\320\260\321\202\321\203\321\201", nullptr));
         addMembershipButton->setText(QCoreApplication::translate("AdminWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214 \320\260\320\261\320\276\320\275\320\265\320\274\320\265\320\275\321\202", nullptr));
         editMembershipButton->setText(QCoreApplication::translate("AdminWindow", "\320\240\320\265\320\264\320\260\320\272\321\202\320\270\321\200\320\276\320\262\320\260\321\202\321\214", nullptr));
         deleteMembershipButton->setText(QCoreApplication::translate("AdminWindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(membershipsTab), QCoreApplication::translate("AdminWindow", "\320\220\320\261\320\276\320\275\320\265\320\274\320\265\320\275\321\202\321\213", nullptr));
-        QTableWidgetItem *___qtablewidgetitem7 = trainerServicesTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem7->setText(QCoreApplication::translate("AdminWindow", "ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem8 = trainerServicesTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem8->setText(QCoreApplication::translate("AdminWindow", "\320\232\320\273\320\270\320\265\320\275\321\202", nullptr));
-        QTableWidgetItem *___qtablewidgetitem9 = trainerServicesTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem9->setText(QCoreApplication::translate("AdminWindow", "\320\222\320\270\320\264 \321\203\321\201\320\273\321\203\320\263\320\270", nullptr));
-        QTableWidgetItem *___qtablewidgetitem10 = trainerServicesTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem10->setText(QCoreApplication::translate("AdminWindow", "\320\241\321\200\320\276\320\272", nullptr));
-        QTableWidgetItem *___qtablewidgetitem11 = trainerServicesTable->horizontalHeaderItem(4);
-        ___qtablewidgetitem11->setText(QCoreApplication::translate("AdminWindow", "\320\235\320\260\321\207\320\260\320\273\320\276", nullptr));
-        QTableWidgetItem *___qtablewidgetitem12 = trainerServicesTable->horizontalHeaderItem(5);
-        ___qtablewidgetitem12->setText(QCoreApplication::translate("AdminWindow", "\320\232\320\276\320\275\320\265\321\206", nullptr));
-        QTableWidgetItem *___qtablewidgetitem13 = trainerServicesTable->horizontalHeaderItem(6);
-        ___qtablewidgetitem13->setText(QCoreApplication::translate("AdminWindow", "\320\241\321\202\320\276\320\270\320\274\320\276\321\201\321\202\321\214", nullptr));
-        QTableWidgetItem *___qtablewidgetitem14 = trainerServicesTable->horizontalHeaderItem(7);
-        ___qtablewidgetitem14->setText(QCoreApplication::translate("AdminWindow", "\320\241\321\202\320\260\321\202\321\203\321\201", nullptr));
+        QTableWidgetItem *___qtablewidgetitem8 = trainerServicesTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem8->setText(QCoreApplication::translate("AdminWindow", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem9 = trainerServicesTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem9->setText(QCoreApplication::translate("AdminWindow", "ID \320\272\320\273\320\270\320\265\320\275\321\202\320\260", nullptr));
+        QTableWidgetItem *___qtablewidgetitem10 = trainerServicesTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem10->setText(QCoreApplication::translate("AdminWindow", "\320\230\320\274\321\217 \320\272\320\273\320\270\320\265\320\275\321\202\320\260", nullptr));
+        QTableWidgetItem *___qtablewidgetitem11 = trainerServicesTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem11->setText(QCoreApplication::translate("AdminWindow", "\320\222\320\270\320\264 \321\203\321\201\320\273\321\203\320\263\320\270", nullptr));
+        QTableWidgetItem *___qtablewidgetitem12 = trainerServicesTable->horizontalHeaderItem(4);
+        ___qtablewidgetitem12->setText(QCoreApplication::translate("AdminWindow", "\320\241\321\200\320\276\320\272", nullptr));
+        QTableWidgetItem *___qtablewidgetitem13 = trainerServicesTable->horizontalHeaderItem(5);
+        ___qtablewidgetitem13->setText(QCoreApplication::translate("AdminWindow", "\320\235\320\260\321\207\320\260\320\273\320\276", nullptr));
+        QTableWidgetItem *___qtablewidgetitem14 = trainerServicesTable->horizontalHeaderItem(6);
+        ___qtablewidgetitem14->setText(QCoreApplication::translate("AdminWindow", "\320\232\320\276\320\275\320\265\321\206", nullptr));
+        QTableWidgetItem *___qtablewidgetitem15 = trainerServicesTable->horizontalHeaderItem(7);
+        ___qtablewidgetitem15->setText(QCoreApplication::translate("AdminWindow", "\320\241\321\202\320\276\320\270\320\274\320\276\321\201\321\202\321\214", nullptr));
+        QTableWidgetItem *___qtablewidgetitem16 = trainerServicesTable->horizontalHeaderItem(8);
+        ___qtablewidgetitem16->setText(QCoreApplication::translate("AdminWindow", "\320\241\321\202\320\260\321\202\321\203\321\201", nullptr));
         deleteTrainerServiceButton->setText(QCoreApplication::translate("AdminWindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(trainerServicesTab), QCoreApplication::translate("AdminWindow", "\320\242\321\200\320\265\320\275\320\265\321\200\321\201\320\272\320\270\320\265 \321\203\321\201\320\273\321\203\320\263\320\270", nullptr));
-        QTableWidgetItem *___qtablewidgetitem15 = visitsTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem15->setText(QCoreApplication::translate("AdminWindow", "ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem16 = visitsTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem16->setText(QCoreApplication::translate("AdminWindow", "\320\232\320\273\320\270\320\265\320\275\321\202", nullptr));
-        QTableWidgetItem *___qtablewidgetitem17 = visitsTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem17->setText(QCoreApplication::translate("AdminWindow", "\320\224\320\260\321\202\320\260 \320\270 \320\262\321\200\320\265\320\274\321\217", nullptr));
+        QTableWidgetItem *___qtablewidgetitem17 = visitsTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem17->setText(QCoreApplication::translate("AdminWindow", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem18 = visitsTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem18->setText(QCoreApplication::translate("AdminWindow", "ID \320\272\320\273\320\270\320\265\320\275\321\202\320\260", nullptr));
+        QTableWidgetItem *___qtablewidgetitem19 = visitsTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem19->setText(QCoreApplication::translate("AdminWindow", "\320\230\320\274\321\217 \320\272\320\273\320\270\320\265\320\275\321\202\320\260", nullptr));
+        QTableWidgetItem *___qtablewidgetitem20 = visitsTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem20->setText(QCoreApplication::translate("AdminWindow", "\320\224\320\260\321\202\320\260 \320\270 \320\262\321\200\320\265\320\274\321\217", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(visitsTab), QCoreApplication::translate("AdminWindow", "\320\237\320\276\321\201\320\265\321\211\320\265\320\275\320\270\321\217", nullptr));
         attendanceReportLabel->setText(QCoreApplication::translate("AdminWindow", "\320\236\321\202\321\207\320\265\321\202 \320\277\320\276 \320\277\320\276\321\201\320\265\321\211\320\265\320\275\320\270\321\217\320\274", nullptr));
         attendanceReportButton->setText(QCoreApplication::translate("AdminWindow", "\320\236\321\202\321\207\320\265\321\202 \320\277\320\276 \320\277\320\276\321\201\320\265\321\211\320\265\320\275\320\270\321\217\320\274", nullptr));
@@ -498,18 +512,20 @@ public:
         typeFilterComboBox->setItemText(4, QCoreApplication::translate("AdminWindow", "\320\221\320\276\320\272\321\201", nullptr));
 
         searchButton->setText(QCoreApplication::translate("AdminWindow", "\320\237\320\276\320\270\321\201\320\272", nullptr));
-        QTableWidgetItem *___qtablewidgetitem18 = searchResultsTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem18->setText(QCoreApplication::translate("AdminWindow", "ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem19 = searchResultsTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem19->setText(QCoreApplication::translate("AdminWindow", "\320\232\320\273\320\270\320\265\320\275\321\202", nullptr));
-        QTableWidgetItem *___qtablewidgetitem20 = searchResultsTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem20->setText(QCoreApplication::translate("AdminWindow", "\320\242\320\270\320\277", nullptr));
-        QTableWidgetItem *___qtablewidgetitem21 = searchResultsTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem21->setText(QCoreApplication::translate("AdminWindow", "\320\241\321\202\320\260\321\202\321\203\321\201", nullptr));
-        QTableWidgetItem *___qtablewidgetitem22 = searchResultsTable->horizontalHeaderItem(4);
-        ___qtablewidgetitem22->setText(QCoreApplication::translate("AdminWindow", "\320\235\320\260\321\207\320\260\320\273\320\276", nullptr));
-        QTableWidgetItem *___qtablewidgetitem23 = searchResultsTable->horizontalHeaderItem(5);
-        ___qtablewidgetitem23->setText(QCoreApplication::translate("AdminWindow", "\320\232\320\276\320\275\320\265\321\206", nullptr));
+        QTableWidgetItem *___qtablewidgetitem21 = searchResultsTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem21->setText(QCoreApplication::translate("AdminWindow", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem22 = searchResultsTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem22->setText(QCoreApplication::translate("AdminWindow", "ID \320\272\320\273\320\270\320\265\320\275\321\202\320\260", nullptr));
+        QTableWidgetItem *___qtablewidgetitem23 = searchResultsTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem23->setText(QCoreApplication::translate("AdminWindow", "\320\230\320\274\321\217 \320\272\320\273\320\270\320\265\320\275\321\202\320\260", nullptr));
+        QTableWidgetItem *___qtablewidgetitem24 = searchResultsTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem24->setText(QCoreApplication::translate("AdminWindow", "\320\242\320\270\320\277", nullptr));
+        QTableWidgetItem *___qtablewidgetitem25 = searchResultsTable->horizontalHeaderItem(4);
+        ___qtablewidgetitem25->setText(QCoreApplication::translate("AdminWindow", "\320\241\321\202\320\260\321\202\321\203\321\201", nullptr));
+        QTableWidgetItem *___qtablewidgetitem26 = searchResultsTable->horizontalHeaderItem(5);
+        ___qtablewidgetitem26->setText(QCoreApplication::translate("AdminWindow", "\320\235\320\260\321\207\320\260\320\273\320\276", nullptr));
+        QTableWidgetItem *___qtablewidgetitem27 = searchResultsTable->horizontalHeaderItem(6);
+        ___qtablewidgetitem27->setText(QCoreApplication::translate("AdminWindow", "\320\232\320\276\320\275\320\265\321\206", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(searchTab), QCoreApplication::translate("AdminWindow", "\320\237\320\276\320\270\321\201\320\272 \320\270 \321\204\320\270\320\273\321\214\321\202\321\200\320\260\321\206\320\270\321\217", nullptr));
         menuFile->setTitle(QCoreApplication::translate("AdminWindow", "\320\244\320\260\320\271\320\273", nullptr));
     } // retranslateUi

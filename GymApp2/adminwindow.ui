@@ -34,7 +34,12 @@
           </column>
           <column>
            <property name="text">
-            <string>Клиент</string>
+            <string>ID клиента</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Имя клиента</string>
            </property>
           </column>
           <column>
@@ -105,7 +110,12 @@
           </column>
           <column>
            <property name="text">
-            <string>Клиент</string>
+            <string>ID клиента</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Имя клиента</string>
            </property>
           </column>
           <column>
@@ -167,7 +177,12 @@
           </column>
           <column>
            <property name="text">
-            <string>Клиент</string>
+            <string>ID клиента</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Имя клиента</string>
            </property>
           </column>
           <column>
@@ -415,7 +430,12 @@
           </column>
           <column>
            <property name="text">
-            <string>Клиент</string>
+            <string>ID клиента</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Имя клиента</string>
            </property>
           </column>
           <column>
